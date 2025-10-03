@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Jeyam Enterprises - About Us{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header bg-primary text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4">About Us</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-white">Home</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">About Us</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Company Overview -->
+<section class="company-overview py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{% static 'img/company-overview.jpg' %}" alt="Jeyam Enterprises Overview" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title">Our Company</h2>
+                <p class="mb-4">Jeyam Enterprises was established in 2005 with a vision to provide innovative and high-quality services to businesses across various industries. Over the years, we have grown into a trusted partner for many organizations, helping them achieve their business goals through our expertise and dedication.</p>
+                <p class="mb-4">Our team of professionals brings together a wealth of experience and knowledge, allowing us to deliver exceptional results for our clients. We pride ourselves on our commitment to excellence, integrity, and customer satisfaction.</p>
+                
+                {% if company_info %}
+                <div class="company-details mt-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-box me-3">
+                                    <i class="fas fa-building text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Established</h6>
+                                    <p class="mb-0">{{ company_info.established_year }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-box me-3">
+                                    <i class="fas fa-phone text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Phone</h6>
+                                    <p class="mb-0">{{ company_info.phone }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-box me-3">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Email</h6>
+                                    <p class="mb-0">{{ company_info.email }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-box me-3">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Location</h6>
+                                    <p class="mb-0">{{ company_info.address|truncatechars:30 }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="mission-vision py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <p class="section-subtitle">What drives us forward</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box mb-3">
+                            <i class="fas fa-bullseye fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="card-title">Our Mission</h3>
+                        {% if company_info and company_info.mission %}
+                        <p class="card-text">{{ company_info.mission }}</p>
+                        {% else %}
+                        <p class="card-text">Our mission is to deliver exceptional services that exceed our clients' expectations, helping them achieve their business objectives through innovative solutions and dedicated support.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box mb-3">
+                            <i class="fas fa-eye fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="card-title">Our Vision</h3>
+                        {% if company_info and company_info.vision %}
+                        <p class="card-text">{{ company_info.vision }}</p>
+                        {% else %}
+                        <p class="card-text">Our vision is to be recognized as a leading provider of business solutions, known for our commitment to quality, innovation, and customer satisfaction, while making a positive impact on the communities we serve.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle">Meet the people behind our success</p>
+        </div>
+        
+        <div class="row">
+            {% for member in team_members %}
+            <div class="col-md-4 mb-4">
+                <div class="card team-card h-100 border-0 shadow-sm">
+                    {% if member.photo %}
+                    <img src="{{ member.photo.url }}" class="card-img-top team-img" alt="{{ member.name }}">
+                    {% else %}
+                    <div class="card-img-top team-img-placeholder bg-light d-flex align-items-center justify-content-center">
+                        <i class="fas fa-user fa-4x text-secondary"></i>
+                    </div>
+                    {% endif %}
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ member.name }}</h5>
+                        <p class="card-subtitle text-muted mb-3">{{ member.position }}</p>
+                        {% if member.bio %}
+                        <p class="card-text">{{ member.bio|truncatewords:20 }}</p>
+                        {% endif %}
+                        <div class="social-icons mt-3">
+                            {% if member.email %}
+                            <a href="mailto:{{ member.email }}" class="text-primary me-2"><i class="fas fa-envelope"></i></a>
+                            {% endif %}
+                            {% if member.phone %}
+                            <a href="tel:{{ member.phone }}" class="text-primary me-2"><i class="fas fa-phone"></i></a>
+                            {% endif %}
+                            {% if member.linkedin %}
+                            <a href="{{ member.linkedin }}" class="text-primary" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>Our team information will be updated soon.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <h2 class="mb-2">Want to join our team?</h2>
+                <p class="lead mb-0">We're always looking for talented individuals to join our growing team.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'contact' %}" class="btn btn-light btn-lg">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
