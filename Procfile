@@ -1,0 +1,1 @@
+web: gunicorn jeyam_enterprises.wsgi --log-file -
