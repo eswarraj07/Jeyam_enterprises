@@ -10,14 +10,14 @@
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
                 <h1 class="display-4 fw-bold mb-4">Welcome to Jeyam Enterprises</h1>
-                <p class="lead mb-4">Your trusted partner for innovative business solutions. We provide exceptional services tailored to meet your specific needs.</p>
+                <p class="lead mb-4">Your trusted partner for gas distribution, dealership, manpower services, and loan lending solutions. We provide exceptional services tailored to meet your specific needs.</p>
                 <div class="d-flex gap-3">
                     <a href="{% url 'about' %}" class="btn btn-light btn-lg">Learn More</a>
                     <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">Contact Us</a>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <img src="{% static 'img/hero-image.jpg' %}" alt="Jeyam Enterprises" class="img-fluid rounded shadow">
+            <div class="col-lg-6 text-center">
+                <img src="{% static 'img/logo.png' %}" alt="Jeyam Enterprises" class="img-fluid rounded shadow" style="max-width: 300px;">
             </div>
         </div>
     </div>
@@ -28,8 +28,67 @@
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Discover what we can do for you</p>
+            <p class="section-subtitle">Comprehensive solutions for your business needs</p>
         </div>
+        
+        <!-- Main Services -->
+        <div class="row mb-5">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 service-card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="service-icon me-3">
+                                <i class="fas fa-fire fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="card-title mb-0">Gas Distribution</h3>
+                        </div>
+                        <p class="card-text">Reliable gas distribution services for residential and commercial needs. We ensure timely delivery and maintain the highest safety standards.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 service-card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="service-icon me-3">
+                                <i class="fas fa-store fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="card-title mb-0">Gas Dealership</h3>
+                        </div>
+                        <p class="card-text">Authorized gas dealership opportunities with comprehensive support. Join our network of successful dealers and grow your business.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 service-card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="service-icon me-3">
+                                <i class="fas fa-users fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="card-title mb-0">Manpower Services</h3>
+                        </div>
+                        <p class="card-text">Professional manpower services for various industries and requirements. We provide skilled and reliable workforce solutions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 service-card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="service-icon me-3">
+                                <i class="fas fa-hand-holding-usd fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="card-title mb-0">Loan Lending Services</h3>
+                        </div>
+                        <p class="card-text">Flexible loan lending services with competitive interest rates. We offer financial solutions tailored to your specific needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Additional Services -->
+        <h3 class="text-center mb-4">Additional Services</h3>
         
         <div class="row">
             {% for service in services %}
@@ -67,12 +126,12 @@
 <section class="about-section py-5 bg-light">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{% static 'img/about-image.jpg' %}" alt="About Jeyam Enterprises" class="img-fluid rounded shadow">
+            <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+                <img src="{% static 'img/logo.png' %}" alt="About Jeyam Enterprises" class="img-fluid rounded shadow" style="max-width: 300px;">
             </div>
             <div class="col-lg-6">
                 <h2 class="section-title">About Jeyam Enterprises</h2>
-                <p class="mb-4">Jeyam Enterprises is a leading company dedicated to providing high-quality services and innovative solutions to our clients. With years of experience in the industry, we have built a reputation for excellence and reliability.</p>
+                <p class="mb-4">Jeyam Enterprises was established in 2015 with a vision to provide innovative and high-quality gas services and businesses across various industries. With our expertise in gas distribution, dealership, manpower services, and loan lending, we have built a reputation for excellence and reliability.</p>
                 <div class="row mb-4">
                     <div class="col-md-6 mb-3">
                         <div class="d-flex align-items-center">
