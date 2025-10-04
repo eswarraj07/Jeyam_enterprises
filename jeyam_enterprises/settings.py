@@ -59,9 +59,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Add WhiteNoise middleware for production
-if not DEBUG:
-    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+# WhiteNoise middleware will be added in production by Render.com
 
 ROOT_URLCONF = 'jeyam_enterprises.urls'
 
@@ -148,9 +146,7 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Use WhiteNoise for static files in production
-if not DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# WhiteNoise storage will be configured in production by Render.com
 
 # Media files
 MEDIA_URL = '/media/'
