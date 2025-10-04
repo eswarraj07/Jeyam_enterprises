@@ -162,8 +162,8 @@ EMAIL_BACKEND = os.environ.get(
     'EMAIL_BACKEND',
     'django.core.mail.backends.console.EmailBackend'
 )
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'Mail2jeyamenterprises07@gmail.com')
-CONTACT_EMAIL = os.environ.get('CONTACT_EMAIL', 'Mail2jeyamenterprises07@gmail.com')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'mail2jeyamenterprises@gmail.com')
+CONTACT_EMAIL = os.environ.get('CONTACT_EMAIL', 'mail2jeyamenterprises@gmail.com')
 
 # Security settings for production
 if not DEBUG:
