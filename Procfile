@@ -1,1 +1,1 @@
-web: gunicorn jeyam_enterprises.wsgi
+web: gunicorn jeyam_enterprises.wsgi:application
